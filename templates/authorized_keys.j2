@@ -1,0 +1,8 @@
+{% macro ssh_public_key_entry(key) %}
+# {{ key }}
+{{ lookup('file', 'ssh-keys/' + key + '.pub') }}
+{% endmacro %}
+
+{% for key in authorized_ssh_keys %}
+{{ ssh_public_key_entry(key) }}
+{% endfor %}

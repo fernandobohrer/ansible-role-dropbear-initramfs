@@ -1,0 +1,6 @@
+---
+__grub_configuration_file: /etc/default/grub
+
+__dropbear_configuration_file: /etc/dropbear/initramfs/dropbear.conf
+
+__dropbear_authorized_keys_file: /etc/dropbear/initramfs/authorized_keys
