@@ -1,4 +1,4 @@
-# Ansible Role: unlockluksviassh
+# Ansible Role: dropbear_initramfs
 
 An Ansible role that deploys and configures `dropbear-initramfs` so that Linux boxes that use full disk encryption based on LUKS can be unlocked remotely via SSH.
 
@@ -20,15 +20,15 @@ An example of how integrate this role to an Ansible playbook can be found here:
 
 ```yml
 ---
-- name: Deploy unlockluksviassh
+- name: Deploy dropbear-initramfs
   hosts: all
   become: true
   gather_facts: true
   vars:
-    authorized_ssh_keys:
+    dropbear_initramfs__authorized_ssh_keys:
       - example
   roles:
-    - fernandobohrer.unlockluksviassh
+    - fernandobohrer.dropbear_initramfs
 ```
 
 ## ⚙️ Compatibility
