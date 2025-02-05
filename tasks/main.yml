@@ -1,7 +1,7 @@
 ---
-- name: Ensure dropbear-initramfs package is installed
+- name: Ensure role dependencies are installed
   ansible.builtin.apt:
-    name: dropbear-initramfs
+    name: "{{ __dropbear_initramfs__role_dependencies }}"
     state: present
     update_cache: true
     cache_valid_time: "{{ apt_cache_valid_time }}"
@@ -9,9 +9,9 @@
 - name: Ensure dropbear-initramfs is configured
   ansible.builtin.lineinfile:
     state: present
-    path: "{{ __dropbear_configuration_file }}"
+    path: "{{ __dropbear_initramfs__configuration_file }}"
     regexp: DROPBEAR_OPTIONS=
-    line: DROPBEAR_OPTIONS="{{ dropbear_options }}"
+    line: DROPBEAR_OPTIONS="{{ __dropbear_initramfs__options }}"
     create: true
     backup: true
     owner: root
@@ -23,7 +23,7 @@
 - name: Generate the authorized_keys file
   ansible.builtin.template:
     src: authorized_keys.j2
-    dest: "{{ __dropbear_authorized_keys_file }}"
+    dest: "{{ __dropbear_initramfs__authorized_keys_file }}"
     backup: true
     owner: root
     group: root
@@ -34,7 +34,7 @@
 - name: Check grub configuration
   ansible.builtin.lineinfile:
     backup: true
-    path: "{{ __grub_configuration_file }}"
+    path: "{{ __dropbear_initramfs__grub_configuration_file }}"
     regexp: ^GRUB_CMDLINE_LINUX_DEFAULT=".*ip=:::::{{ ansible_facts.default_ipv4.interface }}:dhcp.*
     state: absent
   check_mode: true
@@ -44,7 +44,7 @@
 - name: Ensure grub is configured properly
   ansible.builtin.lineinfile:
     state: present
-    path: "{{ __grub_configuration_file }}"
+    path: "{{ __dropbear_initramfs__grub_configuration_file }}"
     regexp: ^(GRUB_CMDLINE_LINUX_DEFAULT=".*)"$
     line: \1 ip=:::::{{ ansible_facts.default_ipv4.interface }}:dhcp"
     backrefs: true

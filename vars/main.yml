@@ -1,6 +1,11 @@
 ---
-__grub_configuration_file: /etc/default/grub
+__dropbear_initramfs__role_dependencies:
+  - dropbear-initramfs
 
-__dropbear_configuration_file: /etc/dropbear/initramfs/dropbear.conf
+__dropbear_initramfs__configuration_file: /etc/dropbear/initramfs/dropbear.conf
 
-__dropbear_authorized_keys_file: /etc/dropbear/initramfs/authorized_keys
+__dropbear_initramfs__options: -p {{ dropbear_initramfs__ssh_port }} -I 60 -RFEgsjk -c cryptroot-unlock
+
+__dropbear_initramfs__authorized_keys_file: /etc/dropbear/initramfs/authorized_keys
+
+__dropbear_initramfs__grub_configuration_file: /etc/default/grub

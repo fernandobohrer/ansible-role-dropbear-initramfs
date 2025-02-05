@@ -3,6 +3,6 @@
 {{ lookup('file', 'ssh-keys/' + key + '.pub') }}
 {% endmacro %}
 
-{% for key in authorized_ssh_keys %}
+{% for key in dropbear_initramfs__authorized_ssh_keys %}
 {{ ssh_public_key_entry(key) }}
 {% endfor %}

@@ -1,34 +1,9 @@
 ---
+# Update the apt cache if it is older than the apt_cache_valid_time value.
+# Option set in seconds.
 apt_cache_valid_time: 3600
 
-authorized_ssh_keys:
+dropbear_initramfs__ssh_port: 22
+
+dropbear_initramfs__authorized_ssh_keys:
   - example
-
-dropbear_options: -p 22 -I 60 -RFEsjk -c cryptroot-unlock
-
-# -p [address:]port
-# Listen on specified address and TCP port. If just a port is given listen on all addresses.
-
-# -I idle_timeout
-# Disconnect the session if no traffic is transmitted or received for idle_timeout seconds.
-
-# -R
-# Generate hostkeys automatically.
-
-# -F
-# Don't fork into background.
-
-# -E
-# Log to standard error rather than syslog.
-
-# -s
-# Disable password logins.
-
-# -j
-# Disable local port forwarding.
-
-# -k
-# Disable remote port forwarding.
-
-# -c forced_command
-# Disregard the command provided by the user and always run forced_command.
