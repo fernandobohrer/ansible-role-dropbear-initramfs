@@ -38,7 +38,7 @@
     regexp: ^GRUB_CMDLINE_LINUX_DEFAULT=".*ip=:::::{{ ansible_facts.default_ipv4.interface }}:dhcp.*
     state: absent
   check_mode: true
-  register: grub_cmdline_check
+  register: dropbear_initramfs__grub_cmdline_check
   changed_when: false
 
 - name: Ensure grub is configured properly
@@ -53,6 +53,6 @@
     owner: root
     group: root
     mode: "644"
-  when: grub_cmdline_check.found == 0
+  when: dropbear_initramfs__grub_cmdline_check.found == 0
   notify:
     - Update grub
