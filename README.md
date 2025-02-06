@@ -8,7 +8,7 @@ Some of the Linux boxes I manage were installed with full disk encryption based 
 
 ## 📑 Role Variables
 
-Check `defaults/main.yml`.
+Check [here][01].
 
 ## 🧰 Dependencies
 
@@ -39,7 +39,7 @@ This role was tested on and is confirmed to work with the following Linux distri
 - `Ubuntu 22.04`
 - `Ubuntu 24.04`
 
-Details can be found in the [Molecule][01] scenarios available in the `molecule` folder.
+Details can be found in the [Molecule][02] scenarios available in the `molecule` folder.
 
 ## ⚠️ Warning
 
@@ -49,7 +49,8 @@ With the above in mind, it is **imperative** that you familiarize yourself with 
 
 ## 📝 License
 
-This project is licensed under the terms of the [MIT license][02].
+This project is licensed under the terms of the [MIT license][03].
 
-[01]: https://github.com/fernandobohrer/ansible-molecule-scenarios
-[02]: /LICENSE
+[01]: defaults/main.yml
+[02]: https://github.com/fernandobohrer/ansible-molecule-scenarios
+[03]: /LICENSE
