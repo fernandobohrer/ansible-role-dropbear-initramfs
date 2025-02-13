@@ -25,7 +25,7 @@ An example of how integrate this role to an Ansible playbook can be found here:
   become: true
   gather_facts: true
   vars:
-    dropbear_initramfs__authorized_ssh_keys:
+    dropbear_initramfs__ssh_authorized_keys:
       - example
   roles:
     - fernandobohrer.dropbear_initramfs

@@ -5,5 +5,5 @@ apt_cache_valid_time: 3600
 
 dropbear_initramfs__ssh_port: 22
 
-dropbear_initramfs__authorized_ssh_keys:
+dropbear_initramfs__ssh_authorized_keys:
   - example
