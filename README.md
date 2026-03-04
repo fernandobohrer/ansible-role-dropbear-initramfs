@@ -8,7 +8,7 @@ Some of the Linux boxes I manage were installed with full disk encryption based 
 
 ## 📑 Role Variables
 
-Check [here][01].
+Check [defaults/main.yml][01].
 
 ## 🧰 Dependencies
 
